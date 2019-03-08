@@ -19,7 +19,7 @@ int sreplace(char old, char n, char *buffer);
 void errExit(const char *errmsg, const char *fileName, int lineNumber);
 void handleString(char *buffer, const char *fileName, int lineNumber);
 void listOptions();
-//void listLogansOptions(); // This was a prank
+
 
 
 

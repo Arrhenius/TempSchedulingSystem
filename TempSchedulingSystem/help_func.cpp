@@ -57,15 +57,4 @@ void listOptions()
 	printf("7: Exit\n");
 }
 
-void listLogansOptions()
-{
-	printf("\n\n");
-	printf("1: Load Cheats\n");
-	printf("2: Save Cheats\n");
-	printf("3: Make Cheats\n");
-	printf("4: Just Cheats\n");
-	printf("5: Start Cheats\n");
-	printf("6: Gay Cheats\n");
-	printf("7: Cheats\n");
-}
 

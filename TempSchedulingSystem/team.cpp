@@ -5,6 +5,7 @@
 #include <memory.h>
 #include <string.h>
 #include <Windows.h>
+#include <ctype.h>
 #include "team.hpp"
 #include "help_func.hpp"
 
@@ -157,12 +158,32 @@ void addPlayers(Team **tm)
 void listTeamPlayers(Team *tm)
 {
 	int i;
+	printf("\t\t\tTeam Info: \n\n\n");
 	printf("\tTeam: \n");
 	printf("\t      %s\n\n", tm->tmName);
 	printf("\tPlayers: \n");
 	for (i = 0; i < tm->sz; i++)
 		printf("\t         %s\n", tm->players[i].name);
 }
+
+void viewPlayerInfoMenu(Team *tm)
+{
+	int i;
+	char buffer[MENU_TKN_SIZE + 1];
+	printf("Choose a player from the list below: \n");
+	printf("\n");
+	for (i = 0; i < tm->sz; i++)
+		printf("%d: %s\n", i + 1, tm->players[i].name);
+
+	printf("Enter choice: ");
+	fgets(buffer, MENU_TKN_SIZE, stdin);
+	handleString(buffer, __FILE__, __LINE__);
+	if(isdigit(atoi(buffer)) == 0 && tm->players[atoi(buffer)])
+		displayPlayerData()
+	
+	displayPlayerData()
+}
+
 
 
 // This function will be used for more features in the future

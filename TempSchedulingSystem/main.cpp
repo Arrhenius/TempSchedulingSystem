@@ -30,15 +30,11 @@ int main(int nargs, char *argv[])
 	while (1)
 	{
 		// Clear the screen
-		system("cls");
-		
-
-		nameLoader();
-		if (tm)
+		system("cls");		// Clear the screen
+		nameLoader();		// Display team name
+		if (tm)				// If team is loaded, display it
 			displayTeam(tm);
-		listOptions();
-	//	listLogansOptions(); // This was a prank
-
+		listOptions();		// List program options
 
 		printf("Enter an option from the list (number): ");
 		fgets(buffer, MENU_TKN_SIZE, stdin);
@@ -52,10 +48,10 @@ int main(int nargs, char *argv[])
 			//loadTeam();
 			break;
 		case 3:
-			//modifyTeam();
+			//modifyTeam(&tm);
 			break;
 		case 4:
-			//saveTeamData();
+			//saveTeamData(&tm);
 			break;
 		case 5:
 			listTeamPlayers(tm);

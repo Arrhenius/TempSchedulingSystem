@@ -34,6 +34,7 @@ void createTeamMenu(Team **tm)
 		printf("1. Add Players: \n");
 		printf("2. Remove Players \n");
 		printf("3. Exit Team Management Menu\n");
+		printf("Enter menu option: ");
 		fgets(buffer, MENU_TKN_SIZE, stdin);
 		handleString(buffer, __FILE__, __LINE__);
 		switch (atoi(buffer))
@@ -49,7 +50,7 @@ void createTeamMenu(Team **tm)
 			Sleep(1000);
 			return;
 		default:
-			printf("Unknown choice. Please choose from the ones listed.\n");
+			printf("Unknown choice. Please enter a number from the ones listed.\n");
 			break;
 		}
 	}
