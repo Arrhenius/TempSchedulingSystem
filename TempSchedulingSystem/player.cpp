@@ -12,7 +12,7 @@ Player createPlayer(const char *name, int tz)
 {
 	Player p;
 
-	
+
 	strcpy(p.name, name);
 	p.timezone = tz;
 

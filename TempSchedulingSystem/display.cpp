@@ -67,16 +67,16 @@ void displayTeam(Team *tm)
 
 	if (tm)
 	{
-	//	printf("%*s\n", 10, "a");
+		//	printf("%*s\n", 10, "a");
 		int i;
-		printf("%*s: %s\n", 65, "Team", tm->tmName); 
-	//	printf("%*s:\n", columns-16, tm->tmName);
+		printf("%*s: %s\n", 65, "Team", tm->tmName);
+		//	printf("%*s:\n", columns-16, tm->tmName);
 		printf("%*s: \n", 65, "Players");
 		for (i = 0; i < tm->sz; i++)
 		{
 			printf("%*s\n", 75, tm->players[i].name);
 
-		//	printf("%*s\n", columns, tm->players->name);
+			//	printf("%*s\n", columns, tm->players->name);
 		}
 	}
 }

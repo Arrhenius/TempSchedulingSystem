@@ -24,7 +24,7 @@ void createTeamMenu(Team **tm)
 
 	(*tm) = init_team(INITTMSZ, buffer);
 
-	while(1)
+	while (1)
 	{
 		if (*tm)
 			displayTeam(*tm);

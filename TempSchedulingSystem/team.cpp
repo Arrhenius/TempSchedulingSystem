@@ -50,7 +50,7 @@ void removePlayers(Team **tm)
 		printf("Player removed...\n");
 		printf("Returning to team management menu\n");
 		Sleep(1000);
-		
+
 	}
 	else
 	{
@@ -71,8 +71,8 @@ void insertPlayerInTeam(Team **tm, Player p)
 	if (!(*tm))
 	{
 		errExit("Team structure was incorrectly passed to function",
-				__FILE__,
-				__LINE__);
+			__FILE__,
+			__LINE__);
 	}
 
 	if ((*tm)->sz == (*tm)->maxsz)
@@ -178,10 +178,10 @@ void viewPlayerInfoMenu(Team *tm)
 	printf("Enter choice: ");
 	fgets(buffer, MENU_TKN_SIZE, stdin);
 	handleString(buffer, __FILE__, __LINE__);
-	if(isdigit(atoi(buffer)) == 0 && tm->players[atoi(buffer)])
+	if (isdigit(atoi(buffer)) == 0 && tm->players[atoi(buffer)])
 		displayPlayerData()
-	
-	displayPlayerData()
+
+		displayPlayerData()
 }
 
 

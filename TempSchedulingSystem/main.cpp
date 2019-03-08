@@ -21,8 +21,8 @@ int main(int nargs, char *argv[])
 	 * to run the program in a maximized window
 	 */
 	ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
-//	HWND wh = GetConsoleWindow();
-//	MoveWindow(wh, 100, 100, 1024, 768, TRUE);
+	//	HWND wh = GetConsoleWindow();
+	//	MoveWindow(wh, 100, 100, 1024, 768, TRUE);
 
 	char buffer[4];
 	Team *tm = NULL;
@@ -68,7 +68,7 @@ int main(int nargs, char *argv[])
 			break;
 		}
 	}
-	
+
 
 	return EXIT_SUCCESS;
 }
