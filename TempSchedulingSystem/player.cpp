@@ -5,16 +5,26 @@
 #include <stdlib.h>
 #include <string.h>
 #include "help_func.hpp"
+#include "availability.hpp"
 #include "player.hpp"
 
 
-Player createPlayer(const char *name, int tz)
+Player createPlayer(const char *fullName, const char *alias, int tz)
 {
 	Player p;
 
+	strcpy(p.name, fullName);	// Copy their full name
+	strcpy(p.alias, alias);		// Copy their alias
+	p.timezone = tz;			// Set timezone constant
 
-	strcpy(p.name, name);
-	p.timezone = tz;
+	strcpy(p.avl[DOW_MON].dayOfWeek, "Mon");
+	strcpy(p.avl[DOW_TUE].dayOfWeek, "Tue");
+	strcpy(p.avl[DOW_WED].dayOfWeek, "Wed");
+	strcpy(p.avl[DOW_THU].dayOfWeek, "Thu");
+	strcpy(p.avl[DOW_FRI].dayOfWeek, "Fri");
+	strcpy(p.avl[DOW_SAT].dayOfWeek, "Sat");
+	strcpy(p.avl[DOW_SUN].dayOfWeek, "Sun");
+
 
 	// Sets the correct timezone for the player
 	if (tz = TZ_PST)
