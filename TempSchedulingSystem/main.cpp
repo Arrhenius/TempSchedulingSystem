@@ -9,6 +9,7 @@
 #include "help_func.hpp"
 #include "createTeam.hpp"
 #include "display.hpp"
+#include "modifyTeam.hpp"
 
 
 
@@ -48,7 +49,7 @@ int main(int nargs, char *argv[])
 			//loadTeam();
 			break;
 		case 3:
-			//modifyTeam(&tm);
+			modifyTeam(&tm);
 			break;
 		case 4:
 			//saveTeamData(&tm);
