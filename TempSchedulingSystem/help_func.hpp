@@ -1,5 +1,5 @@
-#ifndef HELP_FUNC_H
-#define HELP_FUNC_H
+#ifndef HELP_FUNC_HPP
+#define HELP_FUNC_HPP
 
 
 // These are defined constants to indicate a TimeZone
