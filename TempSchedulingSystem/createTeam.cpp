@@ -27,7 +27,7 @@ void createTeamMenu(Team **tm)
 	while (1)
 	{
 		if (*tm)
-			displayTeam(*tm);
+			displayTeam(*tm, FALSE);
 		system("cls");
 		printf("\t\tTeam Management Menu\n");
 
@@ -47,7 +47,7 @@ void createTeamMenu(Team **tm)
 			break;
 		case 3:
 			printf("\tReturning to main menu...\n");
-			Sleep(1000);
+			Sleep(500);
 			return;
 		default:
 			printf("Unknown choice. Please enter a number from the ones listed.\n");
