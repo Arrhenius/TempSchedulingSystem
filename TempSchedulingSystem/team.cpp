@@ -157,7 +157,6 @@ void addPlayers(Team **tm)
 	if (strcmp(buffer, "Yes") == 0 || strcmp(buffer, "Y") == 0 ||
 		strcmp(buffer, "yes") == 0 || strcmp(buffer, "y") == 0)
 	{
-		//TODO: Finish this function
 		(*tm)->players[(*tm)->sz++] = p;
 	}
 	else
