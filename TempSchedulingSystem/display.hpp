@@ -5,7 +5,8 @@
 
 
 void nameLoader();
-void displayTeam(Team *tm);
+void displayTeam(Team *tm, int displayVal);
+void displayAvailability(Team *tm, const int displayPlayer, const int playerIndex);
 
 #endif
 

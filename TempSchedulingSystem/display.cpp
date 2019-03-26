@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include "display.hpp"
 #include "team.hpp"
+#include "player.hpp"
 
 
 
@@ -52,9 +53,33 @@ void nameLoader()
 }
 
 
+void displayTeam(Team *tm, int displayVal)
+{
+	if (tm)
+	{
+		int i;
+		for (i = 0; i < tm->sz; i++)
+		{
+			if (displayVal == 1)
+			{
+				printf("\t%d: %s (%s)\n", i + 1,
+					tm->players[i].alias,
+					tm->players[i].name);
+			}
+			else
+			{
+				printf("\t%s (%s)\n",
+					tm->players[i].alias,
+					tm->players[i].name);
+			}
+		}
+	}
+}
 
-// Still need to finish this function
-#if 1
+
+
+// Still need to finish this function to make things print elegantly
+#if 0
 void displayTeam(Team *tm)
 {
 #if 0
@@ -81,3 +106,46 @@ void displayTeam(Team *tm)
 	}
 }
 #endif
+
+
+void displayAvailability(Team *tm, const int displayPlayer, const int playerIndex)
+{
+	// TODO: This function is a big sloppy mess that needs to be
+	// refactored. For now it's just meant to do the job
+
+	if (tm)
+	{
+
+		int i;
+		if (displayPlayer == TRUE)
+		{
+			printf("----------------------------------------");
+			printf("Player: \t\t%s\n", tm->players[playerIndex].name);
+			printf("----------------------------------------");
+		}
+		for (i = 0; i < tm->sz; i++)
+		{
+			int j;
+			printf("----------------------------------------");
+			printf("Player: \t\t%s\n", tm->players[i].name);
+			printf("----------------------------------------");
+			for (j = 0; j < AV_MXSZ; j++)
+			{
+				printf("\t%s: %d - %d\n", tm->players[i].avl[j].dayOfWeek,
+						tm->players[i].avl[j].start,
+						tm->players[i].avl[j].stop);
+			}
+
+#if 0
+			printf("|__Mon__|__Tue__|__Wed__|__Thu__|__Fri__|__Sat__|__Sun__|\n");
+			for (j = 0; j < AV_MXSZ; j++)
+			{
+				printf("| %d ", tm->players[i].avl[j].start);
+			}
+			printf("|\n");
+#endif
+
+			
+		}
+	}
+}
