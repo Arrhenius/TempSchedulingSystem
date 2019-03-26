@@ -9,9 +9,15 @@
 #define TZ_EST 103
 
 // Max constants used for fgets
-#define MAX_LINE_SIZE 1024
-#define MENU_TKN_SIZE 4
-#define MAX_PLNM_SIZE 32
+#define MAX_LINE_SIZE 1024		// Max string size from stdin
+#define MENU_TKN_SIZE 4			// Max menu token size
+#define MAX_PLNM_SIZE 32		// Max player name size
+#define MAX_TMNM_SIZE 64		// Max team name size
+
+// Boolean constants
+#define FALSE	0
+#define TRUE	1
+
 
 
 // Function prototypes
