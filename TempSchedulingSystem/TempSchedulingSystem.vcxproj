@@ -111,7 +111,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="availability.cpp" />
     <ClCompile Include="createTeam.cpp" />
     <ClCompile Include="display.cpp" />
     <ClCompile Include="help_func.cpp" />
@@ -122,11 +121,10 @@
     <ClCompile Include="team.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="availability.hpp" />
     <ClInclude Include="createTeam.hpp" />
-    <ClInclude Include="day.hpp" />
     <ClInclude Include="display.hpp" />
     <ClInclude Include="help_func.hpp" />
+    <ClInclude Include="modifyTeam.hpp" />
     <ClInclude Include="player.hpp" />
     <ClInclude Include="team.hpp" />
   </ItemGroup>

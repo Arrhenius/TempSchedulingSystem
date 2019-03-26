@@ -39,9 +39,6 @@
     <ClCompile Include="display.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="availability.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="player.hpp">
@@ -59,10 +56,7 @@
     <ClInclude Include="display.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="availability.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="day.hpp">
+    <ClInclude Include="modifyTeam.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
