@@ -34,12 +34,14 @@ int main(int nargs, char *argv[])
 		system("cls");		// Clear the screen
 		nameLoader();		// Display team name
 		if (tm)				// If team is loaded, display it
-			displayTeam(tm);
+			displayTeam(tm, FALSE);
 		listOptions();		// List program options
 
 		printf("Enter an option from the list (number): ");
 		fgets(buffer, MENU_TKN_SIZE, stdin);
 		handleString(buffer, __FILE__, __LINE__);
+
+		// TODO: Need to add display availability feature
 		switch (atoi(buffer))
 		{
 		case 1:
