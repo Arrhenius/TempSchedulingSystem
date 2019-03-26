@@ -1,7 +1,6 @@
-#ifndef TEAM_H
-#define TEAM_H
+#ifndef TEAM_HPP
+#define TEAM_HPP
 
-#include "player.hpp"
 
 typedef struct
 {

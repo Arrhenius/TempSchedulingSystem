@@ -8,7 +8,8 @@
 #include <ctype.h>
 #include "team.hpp"
 #include "help_func.hpp"
-
+#include "display.hpp"
+#include "player.hpp"
 
 
 
@@ -16,10 +17,10 @@ Team *init_team(int num, const char *name)
 {
 	Team *tm;
 
-	tm = (Team *)malloc(D_LIST_TM_SZ(num));
+	tm = (Team *)malloc(D_LIST_TM_SZ(num));		// malloc memory for team
 	if (!tm)
 		errExit("Unable to malloc memory for Team structure", __FILE__, __LINE__);
-	memset(tm, 0, sizeof(Team));
+	memset(tm, 0, sizeof(Team));				// zero out memory
 	tm->maxsz = num;
 	tm->sz = 0;
 	strcpy(tm->tmName, name);
@@ -31,16 +32,23 @@ void removePlayers(Team **tm)
 	if ((*tm))
 	{
 		int i;
+		int iRm_pl;
 		char buffer[MENU_TKN_SIZE + 1];
 		printf("Pick a player from the list below: \n");
+		displayTeam(*tm, TRUE);
+		/*
 		for (i = 0; i < (*tm)->sz; i++)
 		{
-			printf("\t%d: %s\n", i + 1, (*tm)->players[i].name);
+			printf("\t%d: %s (%s)\n", i + 1,
+				(*tm)->players[i].alias,
+				(*tm)->players[i].name);
 		}
+		*/
+
 		printf("Choose a player number: ");
 		fgets(buffer, MENU_TKN_SIZE, stdin);
 		handleString(buffer, __FILE__, __LINE__);
-		int iRm_pl = atoi(buffer) - 1;
+		iRm_pl = atoi(buffer) - 1;
 
 		for (i = iRm_pl; i < (*tm)->sz - 1; i++)
 		{
@@ -48,8 +56,8 @@ void removePlayers(Team **tm)
 		}
 		(*tm)->sz--;
 		printf("Player removed...\n");
-		printf("Returning to team management menu\n");
-		Sleep(1000);
+		printf("Returning to team management menu...\n");
+		Sleep(700);		// Debating on keeping this pause
 
 	}
 	else
@@ -94,6 +102,7 @@ void addPlayers(Team **tm)
 {
 	Player p;
 	char name[MAX_PLNM_SIZE + 1];
+	char alias[MAX_PLNM_SIZE + 1];
 	char tz[MENU_TKN_SIZE];
 	char buffer[MAX_LINE_SIZE];
 
@@ -101,9 +110,14 @@ void addPlayers(Team **tm)
 
 	// Obtain name of player
 	printf("\t\tPlayer Addition Menu:\n\n");
-	printf("Enter a player name: ");
+	printf("Enter a player's full name: ");
 	fgets(name, MAX_PLNM_SIZE, stdin);
 	handleString(name, __FILE__, __LINE__);
+
+	// Obtain alias used by player
+	printf("Enter the player's alias: ");
+	fgets(alias, MAX_PLNM_SIZE, stdin);
+	handleString(alias, __FILE__, __LINE__);
 
 
 	// Obtain timezone of player
@@ -116,32 +130,34 @@ void addPlayers(Team **tm)
 	handleString(tz, __FILE__, __LINE__);
 
 
+	// Create player profile based on data obtained
 	switch (atoi(tz))
 	{
 	case 1:
-		p = createPlayer(name, TZ_PST);
+		p = createPlayer(name, alias, TZ_PST);
 		break;
 	case 2:
-		p = createPlayer(name, TZ_MST);
+		p = createPlayer(name, alias, TZ_MST);
 		break;
 	case 3:
-		p = createPlayer(name, TZ_CST);
+		p = createPlayer(name, alias, TZ_CST);
 		break;
 	case 4:
-		p = createPlayer(name, TZ_EST);
+		p = createPlayer(name, alias, TZ_EST);
 		break;
 	default:
 		printf("Invalid option selected, returning to team management menu...\n");
 		return;
 
 	}
-
+	
 	printf("Add player '%s' to team? (Yes/No): ", name);
 	fgets(buffer, MAX_LINE_SIZE, stdin);
 	handleString(buffer, __FILE__, __LINE__);
 	if (strcmp(buffer, "Yes") == 0 || strcmp(buffer, "Y") == 0 ||
 		strcmp(buffer, "yes") == 0 || strcmp(buffer, "y") == 0)
 	{
+		//TODO: Finish this function
 		(*tm)->players[(*tm)->sz++] = p;
 	}
 	else
@@ -162,10 +178,16 @@ void listTeamPlayers(Team *tm)
 	printf("\tTeam: \n");
 	printf("\t      %s\n\n", tm->tmName);
 	printf("\tPlayers: \n");
-	for (i = 0; i < tm->sz; i++)
+	for (i = 0; i < tm->sz; i++) 
+	{
 		printf("\t         %s\n", tm->players[i].name);
+	}
+		
+	printf("Press any key to continue...");
+	system("pause");
 }
 
+#if 0
 void viewPlayerInfoMenu(Team *tm)
 {
 	int i;
@@ -178,13 +200,16 @@ void viewPlayerInfoMenu(Team *tm)
 	printf("Enter choice: ");
 	fgets(buffer, MENU_TKN_SIZE, stdin);
 	handleString(buffer, __FILE__, __LINE__);
-	if (isdigit(atoi(buffer)) == 0 && tm->players[atoi(buffer)])
-		displayPlayerData()
 
-		displayPlayerData()
+	if (isdigit(atoi(buffer)) == 0) {
+		displayPlayerData();
+	}
+
+
+
 }
 
-
+#endif
 
 // This function will be used for more features in the future
 #if 0
